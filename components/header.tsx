@@ -1,4 +1,6 @@
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
+import { Button } from "./ui/button";
 
 export default function Header() {
   return (
@@ -14,7 +16,20 @@ export default function Header() {
 
           {/* <div className="">Search and location</div> */}
 
-          {/* <div className="">Right Section</div> */}
+          {/* Right Section */}
+
+          <div className="flex items-center ">
+            <SignedIn>
+              {/* Create Event */}
+              <UserButton />
+            </SignedIn>
+
+            <SignedOut>
+              <SignInButton mode="modal">
+                <Button size={"sm"}>Sign In</Button>
+              </SignInButton>
+            </SignedOut>
+          </div>
         </div>
         {/* MOBILE SEARCH AND LOCATION */}
       </nav>

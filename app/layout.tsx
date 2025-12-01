@@ -3,6 +3,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header";
 import { ConvexClientProvider } from "./convex-client-provider";
+import { ClerkProvider } from "@clerk/nextjs";
+import { shadcn } from "@clerk/themes";
 
 export const metadata: Metadata = {
   title: "Event",
@@ -25,29 +27,35 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <ConvexClientProvider>
-            {/* HEADER */}
-            <Header />
+          <ClerkProvider
+            appearance={{
+              theme: shadcn,
+            }}
+          >
+            <ConvexClientProvider>
+              {/* HEADER */}
+              <Header />
 
-            <main className="relative container mx-auto pt-40 md:pt-32 min-h-screen">
-              {/* GLOW EFFECT */}
+              <main className="relative container mx-auto pt-40 md:pt-32 min-h-screen">
+                {/* GLOW EFFECT */}
 
-              <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-                <div className="absolute top-0 left-1/4 size-96 bg-pink-400/20 blur-3xl rounded-full" />
-                <div className="absolute  bottom-0 right-1/4 size-96 bg-red-400/20 blur-3xl rounded-full" />
-              </div>
-
-              <div className="relative z-10 min-h-[70vh]">{children}</div>
-
-              {/* FOOTER */}
-
-              <footer className="border-t border-gray-800/50 py-6 px-6 max-w-7xl mx-auto">
-                <div className="text-gray-400 text-sm ">
-                  Made with ❤️ by Devraj
+                <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+                  <div className="absolute top-0 left-1/4 size-96 bg-pink-400/20 blur-3xl rounded-full" />
+                  <div className="absolute  bottom-0 right-1/4 size-96 bg-red-400/20 blur-3xl rounded-full" />
                 </div>
-              </footer>
-            </main>
-          </ConvexClientProvider>
+
+                <div className="relative z-10 min-h-[70vh]">{children}</div>
+
+                {/* FOOTER */}
+
+                <footer className="border-t border-gray-800/50 py-6 px-6 max-w-7xl mx-auto">
+                  <div className="text-gray-400 text-sm ">
+                    Made with ❤️ by Devraj
+                  </div>
+                </footer>
+              </main>
+            </ConvexClientProvider>
+          </ClerkProvider>
         </ThemeProvider>
       </body>
     </html>
