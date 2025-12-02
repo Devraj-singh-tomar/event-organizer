@@ -1,6 +1,10 @@
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+"use client";
+
+import { SignInButton, UserButton } from "@clerk/nextjs";
+import { Authenticated, Unauthenticated } from "convex/react";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import { BarLoader } from "react-spinners";
 
 export default function Header() {
   return (
@@ -19,19 +23,24 @@ export default function Header() {
           {/* Right Section */}
 
           <div className="flex items-center ">
-            <SignedIn>
+            <Authenticated>
               {/* Create Event */}
               <UserButton />
-            </SignedIn>
+            </Authenticated>
 
-            <SignedOut>
+            <Unauthenticated>
               <SignInButton mode="modal">
                 <Button size={"sm"}>Sign In</Button>
               </SignInButton>
-            </SignedOut>
+            </Unauthenticated>
           </div>
         </div>
         {/* MOBILE SEARCH AND LOCATION */}
+
+        {/* LOADER */}
+        <div className="absolute bottom-0 left-0 w-full">
+          <BarLoader width={"100%"} color="#a855f7" />
+        </div>
       </nav>
 
       {/* MODALS */}

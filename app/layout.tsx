@@ -48,8 +48,8 @@ export default function RootLayout({
 
                 {/* FOOTER */}
 
-                <footer className="border-t border-gray-800/50 py-6 px-6 max-w-7xl mx-auto">
-                  <div className="text-gray-400 text-sm ">
+                <footer className="border-t border-gray-800/50 py-6 px-6 mx-auto text-center">
+                  <div className="text-gray-400 text-sm">
                     Made with ❤️ by Devraj
                   </div>
                 </footer>
