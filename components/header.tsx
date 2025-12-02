@@ -29,7 +29,11 @@ export default function Header() {
 
           {/* Right Section */}
           <div className="flex items-center gap-2">
-            <Button size={"sm"} variant={"ghost"} onClick={() => {}}>
+            <Button
+              size={"sm"}
+              variant={"ghost"}
+              onClick={() => setShowUpgradeModal((prev) => !prev)}
+            >
               Pricing
             </Button>
             <Button size={"sm"} variant={"ghost"} onClick={() => {}}>
