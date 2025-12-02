@@ -10,7 +10,7 @@ export default defineSchema({
     imageUrl: v.optional(v.string()),
 
     hasCompletedOnBoarding: v.boolean(),
-    locatoin: v.optional(
+    location: v.optional(
       v.object({
         city: v.string(),
         state: v.optional(v.string()),

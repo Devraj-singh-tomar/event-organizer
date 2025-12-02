@@ -12,7 +12,7 @@ import { BuildingIcon, PlusIcon, TicketIcon } from "lucide-react";
 export default function Header() {
   const { isLoading } = useStoreUser();
 
-  const [showUpgradeModal, setShowUpgradeModal] = useState(false);
+  const [showUpgradeModal, setShowUpgradeModal] = useState<boolean>(false);
 
   return (
     <>
